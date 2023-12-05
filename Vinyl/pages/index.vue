@@ -6,6 +6,13 @@
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  async asyncData({ $http }) {
+    // Fetch data from Strapi
+    const response = await $http.get('/home'); // Replace with your Strapi endpoint
+    const data = response.data;
+
+    return { data };
+  },
 }
 </script>
